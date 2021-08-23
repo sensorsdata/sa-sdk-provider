@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.sensorsdata.analytics.android:SensorsAnalyticsSDK:5.3.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b849bcbbf5675a91df575bb6f0434bac/jetified-SensorsAnalyticsSDK-5.3.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b849bcbbf5675a91df575bb6f0434bac/jetified-SensorsAnalyticsSDK-5.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b849bcbbf5675a91df575bb6f0434bac/jetified-SensorsAnalyticsSDK-5.3.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sensorsdata.analytics.android/SensorsAnalyticsSDK/5.3.0/3d5709f97adb120216604cfe3e3f02f5240ebd19/SensorsAnalyticsSDK-5.3.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sensorsdata.analytics.android/SensorsAnalyticsSDK/5.3.0/a825de62554f017cdde500c72e7dc8b49c2292ea/SensorsAnalyticsSDK-5.3.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
