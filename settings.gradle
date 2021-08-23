@@ -1,0 +1,3 @@
+include ':SensorsAnalyticsProvider'
+include ':app'
+rootProject.name = "sa-sdk-provider"

@@ -1,0 +1,132 @@
+apply plugin: 'com.android.library'
+apply plugin: 'signing'
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.kezong.fat-aar'
+
+version = "0.0.3"
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        consumerProguardFiles 'proguard-rules.pro'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "SDK_VERSION", "\"${version}\"")
+        }
+
+        debug {
+            buildConfigField("String", "SDK_VERSION", "\"${version}\"")
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    embed 'com.madgag.spongycastle:bcpg-jdk15on:1.58.0.0'
+    embed 'com.madgag.spongycastle:bcpkix-jdk15on:1.58.0.0'
+    embed 'com.madgag.spongycastle:core:1.58.0.0'
+    embed 'com.madgag.spongycastle:prov:1.58.0.0'
+    compileOnly 'com.sensorsdata.analytics.android:SensorsAnalyticsSDK:5.3.0'
+
+//    implementation 'com.madgag.spongycastle:bcpg-jdk15on:1.58.0.0'
+//    implementation 'com.madgag.spongycastle:bcpkix-jdk15on:1.58.0.0'
+//    implementation 'com.madgag.spongycastle:core:1.58.0.0'
+//    implementation 'com.madgag.spongycastle:prov:1.58.0.0'
+}
+
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    dependsOn 'assembleRelease'
+    source = android.sourceSets.main.java.srcDirs +
+            'build/generated/not_namespaced_r_class_sources/release/generateReleaseRFile/out/com/sensorsdata/analytics/android/sdk/R.java'
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+javadoc {
+    options {
+        encoding "UTF-8"
+        charSet 'UTF-8'
+    }
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+publishing {
+    publications {
+        mavenAndroid(MavenPublication) {
+            groupId = 'com.sensorsdata.provider'
+            artifactId = 'SensorsAnalyticsProvider'
+            version = version
+            artifact sourceJar
+            artifact javadocJar
+            artifact('build/outputs/aar/SensorsAnalyticsProvider-release.aar')
+            // 配置 pop 文件格式
+            pom {
+                packaging 'aar'
+                name = 'The official Encrypt Provider for Sensors Analytics.'
+                description = 'The official Encrypt Provider for Sensors Analytics.'
+                url = 'The official Encrypt Provider for Sensors Analytics.'
+                licenses {
+                    license {
+                        name='The Apache Software License, Version 2.0'
+                        url='http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'dengshiwei'
+                        name = 'dengshiwei'
+                        email = 'dengshiwei@sensorsdata.com'
+                    }
+                }
+                scm {
+                    connection = 'https://github.com/sensorsdata/sa-sdk-provider'
+                    developerConnection = 'https://github.com/sensorsdata/sa-sdk-provider.git'
+                    url = 'https://github.com/sensorsdata/sa-sdk-provider'
+                }
+            }
+        }
+    }
+    // 配置远程仓库
+    repositories {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        def mavenUser = properties.getProperty("maven.user")
+        def mavenPassword = properties.getProperty("maven.password")
+        maven {
+            url = 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
+            //url = '../maven/'
+            credentials {
+                username mavenUser
+                password mavenPassword
+            }
+        }
+    }
+}
+
+// 对 mavenAndroid 发布内容进行签名
+signing {
+    sign publishing.publications.mavenAndroid
+}
