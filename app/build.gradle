@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-
+// 应用 com.sensorsdata.analytics.android 插件
+apply plugin: 'com.sensorsdata.analytics.android'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
@@ -29,5 +30,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.sensorsdata.analytics.android:SensorsAnalyticsSDK:6.6.9'
+    compile project(':SensorsAnalyticsProvider')
 
 }

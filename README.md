@@ -1,8 +1,8 @@
 ![logo](https://opensource.sensorsdata.cn/wp-content/uploads/logo.png)
 <br><br>
-[![License](https://img.shields.io/github/license/sensorsdata/sa-sdk-android.svg)](https://github.com/sensorsdata/sa-sdk-android/blob/master/LICENSE)
-[![GitHub release](https://img.shields.io/github/tag/sensorsdata/sa-sdk-android.svg?label=release)](https://github.com/sensorsdata/sa-sdk-android/releases)
-[![GitHub release date](https://img.shields.io/github/release-date/sensorsdata/sa-sdk-android.svg)](https://github.com/sensorsdata/sa-sdk-android/releases)
+[![License](https://img.shields.io/github/license/sensorsdata/sa-sdk-provider.svg)](https://github.com/sensorsdata/sa-sdk-provider/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/tag/sensorsdata/sa-sdk-provider.svg?label=release)](https://github.com/sensorsdata/sa-sdk-provider/releases)
+[![GitHub release date](https://img.shields.io/github/release-date/sensorsdata/sa-sdk-provider.svg)](https://github.com/sensorsdata/sa-sdk-provider/releases)
 
 ## 神策简介
 
@@ -12,7 +12,7 @@
 
 ## SDK 简介
 
-SensorsAnalyticsProvider SDK 是一款支持数据加密算法的 SDK，配合 Android 埋点 SDK 一起使用。
+本 SDK 是一款支持数据加密的算法库，目前支持 RSA、ECC、国密算法加密，需要配合 Android 埋点 SDK 共同使用。
 
 ## 基本要求
 Android 4.0 及以上。
@@ -21,7 +21,6 @@ Android 4.0 及以上。
 
 请参考神策官网 [Android SDK 集成文档](http://www.sensorsdata.cn/manual/android_sdk.html)。
 
-
 ## 贡献
 
 * 1.  在您的 GitHub 账户下 fork sa-sdk-provider 开源项目；
@@ -29,10 +28,6 @@ Android 4.0 及以上。
 * 3.  您修改或者新增功能后，push 到您 fork 的远程分支；
 * 4.  创建 pull request，向 sa-sdk-provider 官方开发分支提交合入请求；
 * 5.  神策 SDK 研发团队会及时 review 代码，测试通过后合入。
-
-## 规划
-
-可参考 [ROADMAP](ROADMAP.md).
 
 ## 讨论
 
@@ -53,14 +48,10 @@ Android 4.0 及以上。
 | ------ | ------ | ------ |
 | [![《数据驱动：从方法到实践》](https://opensource.sensorsdata.cn/wp-content/uploads/data_driven_book_1.jpg)](https://item.jd.com/12322322.html) | [![《Android 全埋点解决方案》](https://opensource.sensorsdata.cn/wp-content/uploads/Android-全埋点thumbnail_1.png)](https://item.jd.com/12574672.html) | [![《iOS 全埋点解决方案》](https://opensource.sensorsdata.cn/wp-content/uploads/iOS-全埋点thumbnail_1.png)](https://item.jd.com/12867068.html)
 
-## 感谢
-- [mixpanel-android](https://github.com/mixpanel/mixpanel-android)
-- [TiDB](https://github.com/pingcap/tidb)
-- [Knight-ZXW](https://github.com/Knight-ZXW)
 
 ## License
 
-Copyright 2015－2021 Sensors Data Inc.
+Copyright 2015－2023 Sensors Data Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

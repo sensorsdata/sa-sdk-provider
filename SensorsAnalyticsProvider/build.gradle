@@ -4,7 +4,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.kezong.fat-aar'
 
-version = "0.0.3"
+version = "0.0.4"
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
@@ -41,7 +41,7 @@ dependencies {
     embed 'com.madgag.spongycastle:bcpkix-jdk15on:1.58.0.0'
     embed 'com.madgag.spongycastle:core:1.58.0.0'
     embed 'com.madgag.spongycastle:prov:1.58.0.0'
-    compileOnly 'com.sensorsdata.analytics.android:SensorsAnalyticsSDK:5.3.0'
+    compileOnly 'com.sensorsdata.analytics.android:SensorsAnalyticsSDK:6.7.2'
 
 //    implementation 'com.madgag.spongycastle:bcpg-jdk15on:1.58.0.0'
 //    implementation 'com.madgag.spongycastle:bcpkix-jdk15on:1.58.0.0'
@@ -116,7 +116,7 @@ publishing {
         def mavenUser = properties.getProperty("maven.user")
         def mavenPassword = properties.getProperty("maven.password")
         maven {
-            url = 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
+            url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
             //url = '../maven/'
             credentials {
                 username mavenUser
