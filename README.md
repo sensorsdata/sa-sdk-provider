@@ -1,5 +1,4 @@
-![logo](https://opensource.sensorsdata.cn/wp-content/uploads/logo.png)
-<br><br>
+
 [![License](https://img.shields.io/github/license/sensorsdata/sa-sdk-provider.svg)](https://github.com/sensorsdata/sa-sdk-provider/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/tag/sensorsdata/sa-sdk-provider.svg?label=release)](https://github.com/sensorsdata/sa-sdk-provider/releases)
 [![GitHub release date](https://img.shields.io/github/release-date/sensorsdata/sa-sdk-provider.svg)](https://github.com/sensorsdata/sa-sdk-provider/releases)
@@ -13,6 +12,15 @@
 ## SDK 简介
 
 本 SDK 是一款支持数据加密的算法库，目前支持 RSA、ECC、国密算法加密，需要配合 Android 埋点 SDK 共同使用。
+
+## 神策埋点 SDK 官网
+如需了解神策埋点 SDK 的更多商业授权信息，请访问[神策埋点 SDK 官网](https://jssdk.debugbox.sensorsdata.cn/)获取更多详细信息。
+
+## 联系我们
+若您有商业合作或产品集成需求，请通过下面的渠道联系我们获取专业服务与支持。
+
+| 加微信号：skycode008，或扫码添加联系人 <img src="https://github.com/sensorsdata/sa-sdk-android/blob/master/WechatIMG180.jpg" width="300" height="450" /> | 扫码关注「神策埋点 SDK」公众号 ![gzh](https://github.com/sensorsdata/sa-sdk-android/blob/master/gzh.jpeg) |
+| ------ | ------ |
 
 ## 基本要求
 Android 4.0 及以上。
